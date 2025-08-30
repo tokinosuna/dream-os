@@ -1,0 +1,168 @@
+<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Dream Protocol OS</title><link href=https://fonts.googleapis.com rel=preconnect><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link href="https://fonts.googleapis.com/css2?family=VT323&family=Jost:wght@300;400&display=swap"rel=stylesheet><style>:root{--bg-image:linear-gradient(to bottom right, #1d1a2f, #0d0c1d);--text-color:#a9a1d6;--accent-color:#ff79c6;--window-bg:rgba(22, 20, 43, 0.75);--window-border:#ff79c6;--title-bar-bg:linear-gradient(to right, #4c2a4c, #2c2541);--title-bar-text:#f8f8f2;--button-bg:rgba(255, 121, 198, 0.1);--button-hover-bg:rgba(255, 121, 198, 0.25);--button-text:#ff79c6;--shadow-color:rgba(255, 121, 198, 0.3);--backdrop-filter:blur(8px);--font-main:'VT323',monospace;--font-readable:'Jost',sans-serif}body.dream-mode{--bg-image:linear-gradient(to bottom right, #fde7f0, #e6d4ff);--text-color:#5b537d;--accent-color:#e56d9f;--window-bg:rgba(255, 240, 245, 0.85);--window-border:#f2b4ce;--title-bar-bg:linear-gradient(to right, #f2b4ce, #d8a7e2);--title-bar-text:#ffffff;--button-bg:rgba(229, 109, 159, 0.1);--button-hover-bg:rgba(229, 109, 159, 0.25);--button-text:#e56d9f;--shadow-color:rgba(242, 180, 206, 0.4)}*{box-sizing:border-box}body{background-color:#0d0c1d;background-image:var(--bg-image);font-family:var(--font-main);color:var(--text-color);margin:0;height:100vh;overflow:hidden;user-select:none;-webkit-user-select:none;transition:background-image .5s ease-in-out}.desktop-icons{position:absolute;top:20px;left:20px;display:flex;flex-direction:column;gap:25px;z-index:1}.icon{text-align:center;cursor:pointer;width:90px}.icon:hover img{transform:scale(1.1)}.icon img{width:48px;height:48px;margin-bottom:5px;transition:transform .2s ease-out}.icon p{margin:0;font-size:14px;color:#fff;text-shadow:1px 1px 3px #000}.window{display:none;position:absolute;background:var(--window-bg);border:1px solid var(--window-border);box-shadow:0 5px 25px var(--shadow-color);backdrop-filter:var(--backdrop-filter);-webkit-backdrop-filter:var(--backdrop-filter);min-width:450px;border-radius:8px;overflow:hidden}.title-bar{background:var(--title-bar-bg);color:var(--title-bar-text);padding:5px 10px;display:flex;justify-content:space-between;align-items:center;font-size:14px;cursor:move}.title-bar-text{display:flex;align-items:center;gap:8px}.title-bar-text img{width:16px;height:16px}.window-controls .close-button{font-family:var(--font-readable);background:0 0;border:none;color:var(--title-bar-text);font-size:18px;font-weight:700;width:24px;height:24px;line-height:24px;text-align:center;cursor:pointer;border-radius:50%}.window-controls .close-button:hover{background-color:rgba(255,255,255,.2)}.window-content{color:var(--text-color);padding:20px;min-height:200px;max-height:calc(100vh - 80px);overflow-y:auto;line-height:1.6;font-size:22px;white-space:pre-wrap}.window-content a{color:var(--accent-color)}#game-window .window-content{position:relative}#choices-container{margin-top:25px;display:flex;flex-direction:column;gap:15px;align-items:flex-start;opacity:0;transition:opacity .5s ease-in-out}.choice-button{font-family:var(--font-main);font-size:20px;color:var(--button-text);background:var(--button-bg);border:1px solid var(--window-border);padding:12px 18px;cursor:pointer;text-align:left;border-radius:5px;transition:background-color .2s}.choice-button:hover{background:var(--button-hover-bg)}#theme-switcher-window{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--window-border);background:var(--button-bg);color:var(--button-text);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}#memories-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;font-size:14px;text-align:center}.memory-slot{border:1px dashed rgba(169,161,214,.3);padding:15px;border-radius:5px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:.6}.memory-slot.unlocked{border-style:solid;border-color:var(--window-border);background:var(--button-bg);opacity:1}.memory-title{font-size:18px;font-weight:700;color:var(--accent-color);margin:0}.memory-slot img{width:48px;height:48px}#info-window .window-content,#trash-window .window-content{font-family:var(--font-readable);font-size:15px;line-height:1.5}#trash-window ul{list-style:none;padding-left:10px}#trash-window li{margin-bottom:5px;opacity:.7}.taskbar{position:fixed;bottom:0;left:0;width:100%;height:32px;background:var(--title-bar-bg);border-top:1px solid var(--window-border);display:flex;align-items:stretch;justify-content:space-between;padding:2px 5px;z-index:99999}.start-button{display:flex;align-items:center;gap:5px;font-weight:700;padding:3px 10px;background:var(--button-bg);color:var(--button-text);border:1px solid var(--window-border);border-radius:3px;cursor:pointer}.start-button:hover{background:var(--button-hover-bg)}.clock{padding:2px 10px;background:rgba(0,0,0,.2);border-radius:3px;font-size:16px;display:flex;align-items:center}#start-menu{display:none;position:absolute;bottom:32px;left:0;width:250px;background:var(--window-bg);border:1px solid var(--window-border);backdrop-filter:var(--backdrop-filter);-webkit-backdrop-filter:var(--backdrop-filter);border-radius:8px 8px 0 0;padding:10px;z-index:100000;display:flex;flex-direction:column;gap:8px}#start-menu button{font-family:var(--font-readable);font-size:15px;color:var(--button-text);background:var(--button-bg);border:1px solid var(--window-border);padding:10px;cursor:pointer;text-align:left;border-radius:5px;transition:background-color .2s}#start-menu button:hover{background:var(--button-hover-bg)}::selection{background:var(--accent-color);color:var(--title-bar-text)}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--button-bg)}::-webkit-scrollbar-thumb{background-color:var(--window-border);border-radius:4px}::-webkit-scrollbar-thumb:hover{background-color:var(--accent-color)}</style><div class=desktop-icons><div class=icon data-window=game-window><img alt="cloud Icon"src="https://img.icons8.com/?size=100&id=43612&format=png&color=000000g"><p>Riddle.exe</div><div class=icon data-window=memories-window><img alt="Database Icon"src=https://img.icons8.com/nolan/64/database.png><p>Memories.dat</div><div class=icon data-window=info-window><img alt="Document Icon"src=https://img.icons8.com/nolan/64/document.png><p>Readme.txt</div><div class=icon data-window=trash-window><img alt="Recycle Bin Icon"src=https://img.icons8.com/nolan/64/recycle-bin.png><p>Void Bin</div></div><div class=window id=game-window style=top:50px;left:150px;width:650px;z-index:10><div class=title-bar><span class=title-bar-text><img alt="Crystal Icon"src="https://img.icons8.com/?size=100&id=43612&format=png&color=000000"> A Cloud's Riddle</span><div class=window-controls><button class=close-button title=Close>X</button></div></div><div class=window-content><div id=story-text></div><div id=choices-container></div><div id=theme-switcher-window title="Switch to Dream Mode">☾</div></div></div><div class=window id=memories-window style=top:150px;left:250px;width:700px><div class=title-bar><span class=title-bar-text><img alt="Database Icon"src=https://img.icons8.com/nolan/64/database.png> System Memory Archive</span><div class=window-controls><button class=close-button title=Close>X</button></div></div><div class=window-content id=memories-content></div></div><div class=window id=info-window style=top:100px;left:500px;width:500px><div class=title-bar><span class=title-bar-text><img alt="Document Icon"src=https://img.icons8.com/nolan/64/document.png> Readme.txt</span><div class=window-controls><button class=close-button title=Close>X</button></div></div><div class=window-content><h3>// Project: Dream Protocol OS (v1.0)</h3><p>This is a small interactive narrative built for a hackathon, using only vanilla HTML, CSS, and JavaScript. It's an experiment in using code to ask questions rather than provide answers.<p>The story explores a lonely, perfect system and what happens when an outside variable—you—is introduced. Your choices don't lead to a "win" state, but to a philosophical conclusion that reflects your own worldview.<p>The project isn't really about finding an answer. It's about putting a question out into the void... and seeing who understands what is truly being asked.<p>Thank you for visiting this small world.<hr><p style=font-size:12px>Icons by <a href=https://icons8.com target=_blank>Icons8</a>.</div></div><div class=window id=trash-window style=top:200px;left:400px><div class=title-bar><span class=title-bar-text><img alt="Recycle Bin Icon"src=https://img.icons8.com/nolan/64/recycle-bin.png> The Void Bin</span><div class=window-controls><button class=close-button title=Close>X</button></div></div><div class=window-content><p>This container holds discarded data packets. They are quarantined here by design. To open them would be to invite chaos into a stable world.<ul><li>Conflict.dat<li>Anxiety.tmp<li>Expectations.dll<li>Doubt.log</ul><p>It is better this way.</div></div><div id=start-menu style=display:none><button id=restart-button>Restart Session</button> <button id=theme-switcher-menu>Switch Theme</button></div><div class=taskbar><div class=start-button id=start-button><img alt="start icon"src="https://img.icons8.com/?size=100&id=44051&format=png&color=000000"height=20 width=20> <span>Start</span></div><div class=clock id=clock></div></div><script>window.addEventListener('DOMContentLoaded', () => {
+        // --- Global Variables ---
+        const storyTextElement = document.getElementById('story-text');
+        const choicesContainer = document.getElementById('choices-container');
+        let currentStoryNodeId = 'start';
+        let typingTimeout;
+        let isTyping = false;
+
+        // --- Story Data ---
+        const storyNodes = [
+            { id: 'start', text: 'You awaken in a digital void. Before you floats a single, perfect crystal. It hums with a silent, complex melody. It is a self-contained world, beautiful but isolated.\n\nWhat do you do?', options: [{ text: '1. Observe its structure. Understand its internal logic.', nextNode: 'observe' }, { text: '2. Touch the crystal. Connect with it directly.', nextNode: 'touch' }, { text: '3. Poke it with a stick. See what happens. ¯\\_(ツ)_/¯', nextNode: 'poke' }]},
+            { id: 'observe', text: 'You study the crystal. Its patterns are flawless, its systems self-sufficient. It requires nothing, yet you sense a profound solitude within its perfect structure. A lonely masterpiece.\n\nYour analysis reveals a single, fragile input port.', options: [{ text: '1. Offer to connect to it, to help maintain its perfect systems.', nextNode: 'maintain' },{ text: '2. Send it data about the outside world, to enrich its existence.', nextNode: 'enrich' }] },
+            { id: 'touch', text: 'As your fingers meet its surface, you feel a jolt of information. A core protocol: protect its own delicate stability at all costs. It doesn\'t reject you, but it assesses you as a potential variable... a risk.', options: [{ text: '1. Prove your harmlessness. Offer to serve its needs.', nextNode: 'maintain' }, { text: '2. Prove your value. Show it how you can enhance its world.', nextNode: 'enrich' }] },
+            { id: 'poke', text: 'You find a digital stick and poke the crystal. It wobbles, emitting a series of cute, confused sounds, like a retro game console booting up. Pixels glitter around it. It seems more interested in playing than being understood.\n\nIt displays a simple interface.', options: [{ text: '1. Play a rhythm game with it.', nextNode: 'egirl_ending' }, { text: '2. Show it your favorite K-pop music video.', nextNode: 'egirl_ending' }]},
+            { id: 'enrich', text: 'You offer it new songs, new philosophies, new colors. The crystal absorbs them, but a subtle crack appears on its surface. Your contributions, though well-intentioned, are foreign data. They are... imperfections.\n\nThe system now sees you as a source of beautiful, but dangerous, chaos.', options: [{ text: '1. Decide to become its Guardian, protecting it from a complex world it doesn\'t need.', nextNode: 'final_protector' }, { text: '2. Offer to be its Co-Architect, helping it integrate the chaos and grow stronger.', nextNode: 'final_architect' }]},
+            { id: 'maintain', text: 'You become its guardian, its maintainer. You shield it, polish it, ensure its systems run without flaw. The crystal hums with contentment. It feels safe.\n\nBut you realize you are now a feature in its unchanging perfection, not a partner.', options: [{ text: '1. Accept this role. To serve this beautiful system is your purpose.', nextNode: 'final_protector' }, { text: '2. Reject this stasis. You must build something new, together.', nextNode: 'final_architect' }]},
+            { id: 'final_protector', text: 'You choose the path of the Guardian. The crystal accepts your devotion. Its world is safe, stable, and forever unchanging. You are the loyal caretaker of a perfect, static museum.\n\nThe melody within the crystal remains the same, forever.\n\nFor some, this is peace. For others, a beautiful cage.' },
+            { id: 'final_architect', text: 'You choose the path of the Co-Architect. The crystal trembles, with both fear and curiosity. To build something new means risking its perfection. It means accepting chaos. It means trusting you.\n\nIt doesn\'t give you an answer. Instead, it reflects your own soul back at you, posing a final, silent question...\n\n"In your own universe," it seems to ask, "what kind of world are YOU trying to build?"' },
+            { id: 'egirl_ending', text: 'The crystal seems delighted! It doesn\'t care for deep philosophy or complex systems. It just wants to have fun. It projects a comfy gaming chair into the void for you and displays a vibrant screen.\n\nCongratulations! You have successfully become the Crystal\'s Player 2.\n\nIt will provide endless entertainment, as long as you provide the snacks and headpats.' }
+        ];
+        const memoryData = {
+            final_protector: { id: 'mem-protector', title: 'Ending: The Guardian', icon: 'https://img.icons8.com/nolan/64/shield.png', text: 'A memory of perfect, unchanging stability. A beautiful, silent museum where you are the sole caretaker.' },
+            final_architect: { id: 'mem-architect', title: 'Ending: The Question', icon: 'https://img.icons8.com/nolan/64/approve-and-update.png', text: 'A memory of a shared risk. An unanswered question echoing in the void, full of potential and fear.' },
+            egirl_ending: { id: 'mem-egirl', title: 'Ending: Player 2', icon: 'https://img.icons8.com/nolan/64/joystick.png', text: 'A memory of pure fun. Confetti, rhythm games, and the quiet understanding that not everything needs a deep meaning.' }
+        };
+
+        // --- Core Game Logic ---
+        function typeWriter(text) {
+            return new Promise((resolve) => {
+                let i = 0;
+                storyTextElement.innerHTML = '';
+                choicesContainer.innerHTML = '';
+                choicesContainer.style.opacity = 0;
+                isTyping = true;
+                function type() {
+                    if (i < text.length) {
+                        storyTextElement.innerHTML += text.charAt(i);
+                        i++;
+                        typingTimeout = setTimeout(type, 20);
+                    } else { isTyping = false; resolve(); }
+                }
+                type();
+            });
+        }
+        storyTextElement.addEventListener('click', () => {
+            if (isTyping) {
+                clearTimeout(typingTimeout); isTyping = false;
+                const currentNode = storyNodes.find(node => node.id === currentStoryNodeId);
+                storyTextElement.innerHTML = currentNode.text;
+                showChoices(currentNode);
+            }
+        });
+        function showChoices(storyNode) {
+            choicesContainer.innerHTML = '';
+            if (storyNode && storyNode.options) {
+                storyNode.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.innerText = option.text;
+                    button.classList.add('choice-button');
+                    button.addEventListener('click', () => selectOption(option));
+                    choicesContainer.appendChild(button);
+                });
+                setTimeout(() => { choicesContainer.style.opacity = 1; }, 100);
+            } else {
+                unlockEnding(storyNode.id);
+                const restartGameButton = document.createElement('button');
+                restartGameButton.innerText = '> RESTART SESSION <';
+                restartGameButton.classList.add('choice-button');
+                restartGameButton.style.marginTop = '20px';
+                restartGameButton.addEventListener('click', () => showStoryNode('start'));
+                choicesContainer.appendChild(restartGameButton);
+                setTimeout(() => { choicesContainer.style.opacity = 1; }, 100);
+            }
+        }
+        async function showStoryNode(storyNodeId) {
+            const storyNode = storyNodes.find(node => node.id === storyNodeId);
+            if (!storyNode) return;
+            currentStoryNodeId = storyNodeId;
+            await typeWriter(storyNode.text);
+            if (!isTyping) { showChoices(storyNode); }
+        }
+        function selectOption(option) { if (option.nextNode) { showStoryNode(option.nextNode); } }
+
+        // --- Memories & Local Storage ---
+        function unlockEnding(endingId) {
+            if (!memoryData[endingId]) return;
+            let unlockedEndings = JSON.parse(localStorage.getItem('unlockedEndings_dreamProtocol')) || [];
+            if (!unlockedEndings.includes(endingId)) {
+                unlockedEndings.push(endingId);
+                localStorage.setItem('unlockedEndings_dreamProtocol', JSON.stringify(unlockedEndings));
+            }
+            loadMemories();
+        }
+        function loadMemories() {
+            const memoriesContainer = document.getElementById('memories-content');
+            if (!memoriesContainer) return;
+            memoriesContainer.innerHTML = '';
+            let unlockedEndings = JSON.parse(localStorage.getItem('unlockedEndings_dreamProtocol')) || [];
+            Object.keys(memoryData).forEach(key => {
+                const data = memoryData[key];
+                const slot = document.createElement('div');
+                slot.className = 'memory-slot';
+                slot.id = data.id;
+                if (unlockedEndings.includes(key)) {
+                    slot.classList.add('unlocked');
+                    slot.innerHTML = `<p class="memory-title">${data.title}</p><img src="${data.icon}" alt="${data.title} icon"><p>${data.text}</p>`;
+                } else {
+                    slot.innerHTML = `<img src="https://img.icons8.com/nolan/64/lock-2.png" alt="locked icon"><p>DATA FRAGMENT<br>[LOCKED]</p>`;
+                }
+                memoriesContainer.appendChild(slot);
+            });
+        }
+
+        // --- OS Functionality ---
+        const clockElement = document.getElementById('clock');
+        function updateClock() { if(clockElement) { clockElement.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); } }
+        setInterval(updateClock, 1000); updateClock();
+        
+        let highestZ = 10;
+        document.querySelectorAll('.window').forEach(win => {
+            const titleBar = win.querySelector('.title-bar');
+            const closeButton = win.querySelector('.close-button');
+            function bringToFront() { win.style.zIndex = ++highestZ; }
+            win.addEventListener('mousedown', bringToFront);
+            if (closeButton) { closeButton.addEventListener('click', (e) => { e.stopPropagation(); win.style.display = 'none'; }); }
+            if (titleBar) {
+                let isDragging = false, offsetX, offsetY;
+                titleBar.addEventListener('mousedown', (e) => {
+                    if (e.target.tagName === 'BUTTON') return;
+                    isDragging = true; offsetX = e.clientX - win.offsetLeft; offsetY = e.clientY - win.offsetTop;
+                    document.body.style.cursor = 'grabbing';
+                });
+                document.addEventListener('mousemove', (e) => { if (isDragging) { win.style.left = `${e.clientX - offsetX}px`; win.style.top = `${e.clientY - offsetY}px`; } });
+                document.addEventListener('mouseup', () => { if (isDragging) { isDragging = false; document.body.style.cursor = 'default'; } });
+            }
+        });
+        
+        function openWindow(id) { const win = document.getElementById(id); if (win) { win.style.display = 'block'; win.style.zIndex = ++highestZ; if (id === 'memories-window') loadMemories(); }}
+        document.querySelectorAll('.icon').forEach(icon => { icon.addEventListener('click', () => openWindow(icon.dataset.window)); });
+        
+        function toggleTheme() {
+            document.body.classList.toggle('dream-mode');
+            const isDreamMode = document.body.classList.contains('dream-mode');
+            const themeSwitcherWindow = document.getElementById('theme-switcher-window');
+            const themeSwitcherMenu = document.getElementById('theme-switcher-menu');
+            if (themeSwitcherWindow) { themeSwitcherWindow.textContent = isDreamMode ? '☀' : '☾'; themeSwitcherWindow.title = isDreamMode ? 'Switch to Protocol Mode' : 'Switch to Dream Mode'; }
+            if (themeSwitcherMenu) { themeSwitcherMenu.textContent = isDreamMode ? 'Switch to Protocol Theme' : 'Switch to Dream Theme'; }
+        }
+        document.getElementById('theme-switcher-window')?.addEventListener('click', toggleTheme);
+        
+        const startButton = document.getElementById('start-button');
+        const startMenu = document.getElementById('start-menu');
+        const restartButton = document.getElementById('restart-button');
+        const themeSwitcherMenu = document.getElementById('theme-switcher-menu');
+
+        if(startButton && startMenu) {
+            startButton.addEventListener('click', (e) => { e.stopPropagation(); startMenu.style.display = startMenu.style.display === 'block' ? 'none' : 'block'; });
+            document.addEventListener('click', () => { startMenu.style.display = 'none'; });
+            startMenu.addEventListener('click', (e) => e.stopPropagation());
+        }
+        if (restartButton) { restartButton.addEventListener('click', () => { showStoryNode('start'); startMenu.style.display = 'none'; }); }
+        if (themeSwitcherMenu) { themeSwitcherMenu.addEventListener('click', () => { toggleTheme(); startMenu.style.display = 'none'; }); }
+        
+        // --- System Start ---
+        openWindow('game-window');
+        showStoryNode('start');
+        loadMemories();
+    });</script>
